@@ -4,6 +4,8 @@ import {
   guardarMiNonbre,
   incrementarPuntuacion,
   modificarUnValor,
+  agregarUnValor,
+  eliminarUnValor,
 } from "../store/misSlice";
 
 const Uno = () => {
@@ -16,14 +18,14 @@ const Uno = () => {
    * The action payload is the new value for miNombre
    * The action is dispatched to the Redux store
    * The action is dispatched using the dispatch function from useDispatch
+   *   // The miNombre state is accessed using the useSelector hook
+   *   // The puntuacion state is accessed using the useSelector hook
    */
   const dispatch = useDispatch();
-  // The miNombre state is accessed using the useSelector hook
-  const miNombreAhora = useSelector((state) => state.unValor.miNombre);
-  // The puntuacion state is accessed using the useSelector hook
-  const miPuntuacionAhora = useSelector((state) => state.otroValor.puntuacion);
 
-  console.log("miNombreAhora", miNombreAhora);
+  const miNombreAhora = useSelector((state) => state.unValor.miNombre);
+
+  const miPuntuacionAhora = useSelector((state) => state.otroValor.puntuacion);
 
   const modificar = () => {
     dispatch(guardarMiNonbre("Bob esponja"));
@@ -38,9 +40,22 @@ const Uno = () => {
       modificarUnValor({
         indice: 0,
         nuevoNombre: "React",
-        nuevoInicio: "mayo 2013",
+        nuevoInicio: "Mayo 2013",
       })
     );
+  };
+
+  const agregar = () => {
+    dispatch(
+      agregarUnValor({
+        nombre: "Vue",
+        inicio: 2014,
+      })
+    );
+  };
+
+  const eliminar = () => {
+    dispatch(eliminarUnValor("Vue"));
   };
 
   return (
@@ -50,6 +65,8 @@ const Uno = () => {
       <button onClick={modificar}>Modificar miNombre </button>
       <button onClick={incrementar}>Incrementar puntuación </button>
       <button onClick={modificarArray}>Modificar un Valor </button>
+      <button onClick={agregar}>Agregar un Valor </button>
+      <button onClick={eliminar}>Eliminar un Valor </button>
     </>
   );
 };
