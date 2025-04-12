@@ -1,7 +1,20 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Dos = () => {
-  return <div>Dos</div>;
+  const miNombreAhora = useSelector((state) => state.unValor.miNombre);
+  const miArrayAhora = useSelector((state) => state.unValor.bibliotecas);
+  return (
+    <>
+      <h1>{miNombreAhora}</h1>
+      <h1>Bibliotecas</h1>
+      {miArrayAhora.map((valor) => (
+        <div>
+          {valor.nombre} ({valor.inicio})
+        </div>
+      ))}
+    </>
+  );
 };
 
 export default Dos;

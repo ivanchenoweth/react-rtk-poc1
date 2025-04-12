@@ -6,7 +6,6 @@ import Dos from "./componentes/Dos";
 const MiRouter = () => {
   return (
     <Router>
-      <Link to="/">Home</Link>
       <Link to="/uno">
         <button>Ir al UNO</button>
       </Link>
