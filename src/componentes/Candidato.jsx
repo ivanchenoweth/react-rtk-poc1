@@ -15,7 +15,7 @@ const Candidato = ({ candidato, index, onBuscarUno, onGuardarUno }) => {
         <p>Phone: {candidato.phone}</p>
         <p>Age: {candidato.dob.age}</p>
         <button onClick={() => onBuscarUno(index)}>Ocultar</button>
-        <button onClick={() => onGuardarUno(candidato)}>Guardar</button>
+        <button onClick={() => onGuardarUno(candidato, index)}>Guardar</button>
       </li>
       <hr />
     </>

@@ -7,7 +7,7 @@ export const miSlice = createSlice({
   },
   reducers: {
     agregarUnValor: (state, action) => {
-      state.trabajadores = [...state.trabajadores, action.payload];
+      state.trabajadores.push(action.payload);
     },
   },
 });

@@ -31,8 +31,9 @@ export default function Listado() {
       });
   };
 
-  const guardarUno = (valor) => {
-    dispatch(agregarUnValor(valor));
+  const guardarUno = (valor, index) => {
+    dispatch(agregarUnValor(valor, index));
+    buscarUno(index);
   };
 
   return (
@@ -55,7 +56,7 @@ export default function Listado() {
       {listaTrabajadores &&
         listaTrabajadores.map((valor, i) =>
           valor && valor.name && valor.name.first ? (
-            <Link key={i} to={`/gestion/${valor}`}>
+            <Link key={i} to={`/gestion`}>
               <button>{valor.name.first}</button>
             </Link>
           ) : null
